@@ -18,9 +18,14 @@ const getMostUsedLang = (repoData) => {
       languages[repo.language] += 1;
     else languages[repo.language] = 1;
   });
-  return [
+  const sortedKeys = [
     ...Object.keys(languages).sort((a, b) => languages[b] - languages[a]),
   ];
+  const mostUsed = {};
+  for (let i = 0; i < 3; i++) {
+    mostUsed[sortedKeys[i]] = languages[sortedKeys[i]];
+  }
+  return mostUsed;
 };
 
 export default extractData;

@@ -1,6 +1,9 @@
 import React from 'react';
+import RecentWork from './RecentWork';
+import SkillVisualizer from './SkillVisualizer';
+import S from './Styled';
 
-const UserProfile = ({ data, meta }) => {
+const UserProfile = ({ data, meta, recentRepo }) => {
   const {
     avatar_url,
     login: username,
@@ -11,37 +14,27 @@ const UserProfile = ({ data, meta }) => {
     html_url,
   } = data;
   const { stars, repos, langs } = meta;
+
   return (
-    <div>
-      <img src={avatar_url} width={80} height={80} alt="profile-pic" />
-      <h2>
-        <a href={html_url} target="_blank" rel="noreferrer">
+    <S.UserCard>
+      <S.ProfileFrame radius={100}>
+        <img src={avatar_url} alt="profile-pic" />
+      </S.ProfileFrame>
+      <h2>{name}</h2>
+      <h4>
+        <a
+          href={html_url}
+          title="Go to GitHub Profile"
+          target="_blank"
+          rel="noreferrer"
+        >
           {username}
         </a>
-      </h2>
-      <h4>{name}</h4>
-      <h3>
-        <p>
-          Followers: <span>{followers}</span>
-        </p>
-        <p>
-          Following: <span>{following}</span>
-        </p>
-        <p>
-          Stars: <span>{stars}</span>
-        </p>
-        <p>
-          Repos: <span>{repos}</span>
-        </p>
-        <p>
-          Languages:
-          {langs.map((l) => {
-            return l !== 'null' ? <span key={l}>{l}; </span> : null;
-          })}
-        </p>
-      </h3>
+      </h4>
       <p>{bio}</p>
-    </div>
+      <SkillVisualizer langs={langs} />
+      <RecentWork recentRepo={recentRepo} />
+    </S.UserCard>
   );
 };
 

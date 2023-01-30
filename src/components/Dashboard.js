@@ -12,8 +12,14 @@ const Dashboard = () => {
 
   return (
     <S.Dashboard>
-      {userData ? <UserProfile data={userData} meta={meta} /> : null}
-      {repoData ? <RepoViewer data={repoData} /> : null}
+      {userData ? (
+        <UserProfile
+          data={userData}
+          meta={meta}
+          recentRepo={repoData.slice(0, 3)}
+        />
+      ) : null}
+      <div>{repoData ? <RepoViewer data={repoData} /> : null}</div>
     </S.Dashboard>
   );
 };
