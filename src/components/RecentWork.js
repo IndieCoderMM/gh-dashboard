@@ -12,7 +12,7 @@ const RecentWork = ({ recentRepo }) => {
             href={repo.html_url}
             title="View Repo"
             target="_blank"
-            rel="noreferer"
+            rel="noreferrer"
           >
             <RiGitRepositoryFill />
           </a>

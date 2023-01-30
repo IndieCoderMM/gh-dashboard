@@ -13,6 +13,7 @@ const PageHeader = styled.div`
   display: flex;
   align-items: center;
   background-color: #fff;
+  padding: 0.5rem 2rem;
 `;
 
 const SearchForm = styled.form`
@@ -52,6 +53,9 @@ const UserCard = styled.div`
   background-color: #fff;
   border-radius: 8px;
   padding: 1rem;
+  & > p {
+    text-align: center;
+  }
 `;
 
 const ProfileFrame = styled.div`
@@ -105,6 +109,7 @@ const ListContainer = styled.ul`
   display: flex;
   flex-direction: column;
   border-top: solid 1px #ccc;
+  width: 100%;
 `;
 
 const RepoItem = styled.li`
@@ -128,33 +133,58 @@ const RepoItem = styled.li`
 const RepoContainer = styled.ul`
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   padding: 1rem;
-  background-color: aliceblue;
 `;
 
 const RepoCard = styled.li`
-  padding: 0.5rem 1rem;
+  padding: 1rem;
   background-color: #fff;
   box-shadow: 0 5px 10px rgba(150, 150, 150, 0.4);
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
 
-  & > ul {
-    flex: 1;
+  & header {
     display: flex;
-    align-items: flex-end;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    list-style: none;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    font-size: 1.5rem;
   }
 
-  & ul > li {
-    background-color: lightblue;
-    border-radius: 2px;
-    padding: 0.25rem;
+  & a {
+    transition: all 0.3s ease;
   }
+
+  & a:hover {
+    transform: scale(1.1);
+  }
+
+  & svg {
+    color: ${() => colors[Math.floor(Math.random() * colors.length)]};
+  }
+
+  & > p {
+    flex: 1;
+    margin-bottom: 0.5rem;
+  }
+`;
+
+const Row = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const Tag = styled.span`
+  background-color: #8080ff;
+  width: fit-content;
+  color: #fff;
+  border-radius: 25rem;
+  padding: 0.25rem 0.5rem;
 `;
 
 const S = {
@@ -169,6 +199,8 @@ const S = {
   RepoItem,
   RepoContainer,
   RepoCard,
+  Row,
+  Tag,
 };
 
 export default S;

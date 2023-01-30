@@ -1,27 +1,59 @@
 import React from 'react';
 import S from './Styled';
+import { GoRepo } from 'react-icons/go';
+import { BiRocket } from 'react-icons/bi';
+import { FaStar } from 'react-icons/fa';
+import { TbLicense } from 'react-icons/tb';
+import { RiGitRepositoryCommitsLine } from 'react-icons/ri';
 
 const RepoCard = ({ repoData }) => {
-  const { id, name, homepage, description, stargazers_count, topics } =
-    repoData;
+  const {
+    id,
+    name,
+    homepage,
+    description,
+    stargazers_count,
+    html_url,
+    language,
+    license,
+    pushed_at,
+  } = repoData;
   return (
-    <S.RepoCard key={id}>
-      <h3>
-        {name}
-        <span> ⭐ {stargazers_count}</span>
-      </h3>
-      <h4>
-        <a href={homepage} target="_blank" rel="noreferrer">
-          Live Demo 🚀
+    <S.RepoCard>
+      <header>
+        <h4>{name}</h4>
+        <a href={html_url} title="View Repo" target="_blank" rel="noreferrer">
+          <GoRepo style={{ fontSize: '2em' }} />
         </a>
-      </h4>
-      <p>{description}</p>
+      </header>
+      <S.Row>
+        <S.Row>
+          <FaStar style={{ color: 'gold', fontSize: '1.5em' }} />
+          <p style={{ fontSize: '1.5em', fontWeight: 600 }}>
+            {stargazers_count}
+          </p>
+        </S.Row>
+        <S.Row>
+          <RiGitRepositoryCommitsLine />
+          <p>{new Date(pushed_at).toDateString()}</p>
+        </S.Row>
 
-      <ul>
-        {topics.map((t) => (
-          <li key={t + id}>{t}</li>
-        ))}
-      </ul>
+        <S.Row>
+          <TbLicense />
+          {license ? <p>{license.name}</p> : 'MIT License'}
+        </S.Row>
+      </S.Row>
+
+      <p>{description}</p>
+      <S.Row>
+        <S.Tag>{language ? language : 'Plain'}</S.Tag>
+
+        {homepage ? (
+          <a href={homepage} target="_blank" rel="noreferrer">
+            <BiRocket style={{ fontSize: '1.5em' }} />
+          </a>
+        ) : null}
+      </S.Row>
     </S.RepoCard>
   );
 };
