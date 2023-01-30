@@ -3,13 +3,16 @@ import { useSelector } from 'react-redux';
 import S from './Styled';
 import UserProfile from './UserProfile';
 import RepoViewer from './RepoViewer';
+import extractData from '../utils/extractData';
 
 const Dashboard = () => {
   const userData = useSelector((state) => state.github.data.user);
   const repoData = useSelector((state) => state.github.data.repo);
+  const meta = extractData(repoData);
+
   return (
     <S.Dashboard>
-      {userData ? <UserProfile data={userData} /> : null}
+      {userData ? <UserProfile data={userData} meta={meta} /> : null}
       {repoData ? <RepoViewer data={repoData} /> : null}
     </S.Dashboard>
   );

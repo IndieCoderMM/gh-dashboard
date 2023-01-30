@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const PageHeader = styled.div`
   display: flex;
+  align-items: center;
   background-color: #fff;
 `;
 
@@ -37,8 +38,8 @@ const Dashboard = styled.div`
 
 const RepoContainer = styled.ul`
   list-style: none;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
   padding: 1rem;
   background-color: aliceblue;
@@ -48,9 +49,14 @@ const RepoCard = styled.li`
   padding: 0.5rem 1rem;
   background-color: #fff;
   box-shadow: 0 5px 10px rgba(150, 150, 150, 0.4);
+  display: flex;
+  flex-direction: column;
 
   & > ul {
+    flex: 1;
     display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
     gap: 0.5rem;
     list-style: none;
   }

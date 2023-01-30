@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UserProfile = ({ data }) => {
+const UserProfile = ({ data, meta }) => {
   const {
     avatar_url,
     login: username,
@@ -10,6 +10,7 @@ const UserProfile = ({ data }) => {
     following,
     html_url,
   } = data;
+  const { stars, repos, langs } = meta;
   return (
     <div>
       <img src={avatar_url} width={80} height={80} alt="profile-pic" />
@@ -25,6 +26,18 @@ const UserProfile = ({ data }) => {
         </p>
         <p>
           Following: <span>{following}</span>
+        </p>
+        <p>
+          Stars: <span>{stars}</span>
+        </p>
+        <p>
+          Repos: <span>{repos}</span>
+        </p>
+        <p>
+          Languages:
+          {langs.map((l) => {
+            return l !== 'null' ? <span key={l}>{l}; </span> : null;
+          })}
         </p>
       </h3>
       <p>{bio}</p>

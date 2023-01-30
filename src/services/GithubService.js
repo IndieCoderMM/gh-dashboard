@@ -11,7 +11,7 @@ const getUser = (username) => http.get(`/users/${username}`);
 
 const getRepos = (username) =>
   http.get(`/users/${username}/repos`, {
-    params: { per_page: 100, sort: 'created: asc' },
+    params: { per_page: 100, sort: 'pushed' },
   });
 
 const GithubService = { getUser, getRepos };

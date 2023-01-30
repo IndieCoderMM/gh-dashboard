@@ -1,29 +1,27 @@
 import React from 'react';
+import RepoCard from './RepoCard';
 import S from './Styled';
 
 const RepoViewer = ({ data }) => {
-  const recentRepos = data.slice(0, 5);
+  const recentRepos = data.slice(0, 3);
+  const popularRepos = [...data];
+  popularRepos.sort((a, b) => b.stargazers_count - a.stargazers_count);
   return (
-    <S.RepoContainer>
+    <>
       <h2>Recent Works</h2>
-      {recentRepos.map((repo) => (
-        <S.RepoCard key={repo.id}>
-          <h3>{repo.name}</h3>
-          <h4>
-            <a href={repo.homepage} target="_blank" rel="noreferrer">
-              Live Demo 🚀
-            </a>
-          </h4>
-          <p>{repo.description}</p>
-          <p> ⭐ {repo.stargazers_count}</p>
-          <ul>
-            {repo.topics.map((t) => (
-              <li key={t}>{t}</li>
-            ))}
-          </ul>
-        </S.RepoCard>
-      ))}
-    </S.RepoContainer>
+      <S.RepoContainer>
+        {recentRepos.map((repo) => (
+          <RepoCard key={repo.id} repoData={repo} />
+        ))}
+      </S.RepoContainer>
+      <hr />
+      <h2>Popular Works</h2>
+      <S.RepoContainer>
+        {popularRepos.slice(0, 3).map((repo) => (
+          <RepoCard key={repo.id} repoData={repo} />
+        ))}
+      </S.RepoContainer>
+    </>
   );
 };
 
