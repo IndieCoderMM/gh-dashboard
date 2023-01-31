@@ -44,7 +44,7 @@ const RepoCard = ({ repoData }) => {
       </S.Row>
 
       <p>{description}</p>
-      <S.Row>
+      <S.Row justify="space-between">
         <S.Tag>{language ? language : 'Plain'}</S.Tag>
 
         {homepage ? (

@@ -85,7 +85,7 @@ const UserCard = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 20%;
+  width: 30%;
   background-color: #fff;
   border-radius: 8px;
   padding: 1rem;
@@ -188,7 +188,6 @@ const ListContainer = styled.ul`
 `;
 
 const StatsCard = styled.div`
-  flex: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -239,7 +238,7 @@ const RepoItem = styled.li`
 const RepoContainer = styled.ul`
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, minmax(200px, 1fr));
   gap: 1rem;
   padding: 1rem;
 `;
@@ -284,6 +283,7 @@ const Row = styled.div`
   align-items: center;
   gap: ${(props) => props.gap || 0}rem;
   padding: 0 ${(props) => props.pad || 0}rem;
+  justify-content: ${(props) => props.justify || 'flex-start'};
 `;
 
 const Tag = styled.span`

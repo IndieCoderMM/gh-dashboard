@@ -16,14 +16,14 @@ const StatsViewer = () => {
       <S.StatsCard colorIndex={0}>
         <RiGitRepositoryFill />
         <div>
-          <p>Total Repos</p>
+          <p>Repos</p>
           <span>{repos}</span>
         </div>
       </S.StatsCard>
       <S.StatsCard colorIndex={3}>
         <BsFillStarFill />
         <div>
-          <p>Total Stars</p>
+          <p>Stars</p>
           <span>{stars}</span>
         </div>
       </S.StatsCard>
