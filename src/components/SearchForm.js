@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { getUserData } from '../redux/github/github';
+import { FiSearch } from 'react-icons/fi';
 import S from './Styled';
 
 const SearchForm = () => {
@@ -20,13 +21,17 @@ const SearchForm = () => {
 
   return (
     <S.SearchForm onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Search by GitHub Username"
-        ref={userRef}
-        onChange={search}
-      />
-      <button type="submit">Search</button>
+      <S.FormGroup>
+        <input
+          type="text"
+          placeholder="Search"
+          ref={userRef}
+          onChange={search}
+        />
+        <button type="submit">
+          <FiSearch />
+        </button>
+      </S.FormGroup>
     </S.SearchForm>
   );
 };

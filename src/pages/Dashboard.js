@@ -3,24 +3,39 @@ import S from '../components/Styled';
 import UserProfile from '../components/UserProfile';
 import RepoViewer from '../components/RepoViewer';
 import StatsViewer from '../components/StatsViewer';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserData } from '../redux/github/github';
+import { FaHome, FaLink } from 'react-icons/fa';
 
 const Dashboard = () => {
   const params = useParams();
   const dispatch = useDispatch();
-  console.log(params.username);
   const status = useSelector((state) => state.github.status);
   useEffect(() => {
     if (status !== 'success') dispatch(getUserData(params.username));
   }, [params, status, dispatch]);
+
+  const copyDashboardLink = () => {
+    const link = window.location.href;
+    navigator.clipboard.writeText(link);
+  };
   return (
     <S.Dashboard>
       <UserProfile />
       <S.Section>
         <StatsViewer />
         <RepoViewer />
+        <S.ButtonContainer justify="flex-end" gap={2}>
+          <Link to="/">
+            <button type="button">
+              Back to Home <FaHome />
+            </button>
+          </Link>
+          <button type="button" onClick={copyDashboardLink}>
+            Copy Link <FaLink />{' '}
+          </button>
+        </S.ButtonContainer>
       </S.Section>
     </S.Dashboard>
   );

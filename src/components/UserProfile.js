@@ -14,7 +14,7 @@ const UserProfile = () => {
 
   return (
     <S.UserCard>
-      <S.ProfileFrame radius={100}>
+      <S.ProfileFrame radius={200}>
         <img src={avatar_url} alt="profile-pic" />
       </S.ProfileFrame>
       <h2>{name}</h2>

@@ -31,7 +31,6 @@ const gitSlice = createSlice({
       .addCase(getUserData.fulfilled, (state, action) => {
         state.data = action.payload;
         state.status = 'success';
-        console.log(action.payload);
       })
       .addCase(getUserData.rejected, (state, action) => {
         state.status = 'error';

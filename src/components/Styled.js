@@ -11,32 +11,66 @@ const theme = {
 
 const colors = Object.values(theme);
 
-const PageHeader = styled.div`
-  display: flex;
-  align-items: center;
-  background-color: #fff;
-  padding: 0.5rem 2rem;
-`;
-
 const SearchForm = styled.form`
-  width: 80%;
-  margin: 1rem auto;
   display: flex;
+  justify-content: center;
   gap: 1rem;
+  width: 60%;
 
   & input {
     flex: 1;
-    padding: 0.5rem 1rem;
-    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
     font-family: cursive;
+    border: none;
+    background: none;
+  }
+
+  & input:focus {
+    outline: none;
+  }
+
+  & input::placeholder {
+    opacity: 0.5;
   }
 
   & button {
-    padding: 0.5rem 1rem;
-    font-family: cursive;
-    font-size: 1.2rem;
-    background-color: goldenrod;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    font-size: 2em;
+    background: none;
+    background-color: ${theme.blue};
+    border: none;
+    color: #fff;
+    transition: all 0.3s ease;
   }
+
+  & button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 8px #ccc;
+  }
+`;
+
+const FormGroup = styled.div`
+  display: flex;
+  background-color: #fff;
+  border-radius: 20rem;
+  padding: 0.5rem;
+`;
+
+const Homepage = styled.div`
+  width: 100vw;
+  height: 100vh;
+  background: #457fca;
+  background: -webkit-linear-gradient(to right, #5691c8, #457fca);
+  background: linear-gradient(to right, #5691c8, #457fca);
+  color: #fff;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 `;
 
 const Dashboard = styled.div`
@@ -113,6 +147,32 @@ const ProgressCircle = styled.div`
       white 0
     ),
     conic-gradient(var(--primary) calc(var(--progress) * 1%), var(--gray) 0);
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: ${(props) => props.justify};
+  gap: ${(props) => props.gap}rem;
+  padding: 0 2rem;
+  --color: ${() => colors[Math.floor(Math.random() * colors.length)]};
+
+  & button {
+    padding: 1rem;
+    background: #fff;
+    border: solid 2px var(--color);
+    color: var(--color);
+    font-size: 1.5rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+
+  & button:hover {
+    background-color: var(--color);
+    transform: translateY(-2px);
+    color: #fff;
+    box-shadow: 0 5px 10px rgba(100, 100, 100, 0.5);
+  }
 `;
 
 const ListContainer = styled.ul`
@@ -222,7 +282,6 @@ const RepoCard = styled.li`
 const Row = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: ${(props) => props.gap || 0}rem;
   padding: 0 ${(props) => props.pad || 0}rem;
 `;
@@ -241,9 +300,43 @@ const Section = styled.div`
   padding: ${(props) => props.pad || 0}rem;
 `;
 
+const SuggestionBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  background-color: #fff;
+  color: ${theme.indigo};
+  padding: 2rem;
+  border-radius: 20px;
+
+  & img {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+  }
+
+  & a {
+    font-size: 1.5rem;
+    color: #fff;
+    text-decoration: none;
+    background-color: ${theme.blue};
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+  }
+
+  & a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(100, 100, 100, 0.4);
+  }
+`;
+
 const S = {
-  PageHeader,
+  Homepage,
   SearchForm,
+  SuggestionBox,
+  FormGroup,
+  ButtonContainer,
   Dashboard,
   UserCard,
   ProfileFrame,

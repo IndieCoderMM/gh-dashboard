@@ -25,7 +25,7 @@ const RepoCard = ({ repoData }) => {
           <GoRepo style={{ fontSize: '2em' }} />
         </a>
       </header>
-      <S.Row>
+      <S.Row gap={2}>
         <S.Row>
           <FaStar style={{ color: '#f1c40f', fontSize: '1.5em' }} />
           <p style={{ fontSize: '1.5em', fontWeight: 600 }}>
