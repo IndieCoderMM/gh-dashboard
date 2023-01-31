@@ -7,6 +7,7 @@ export const getUserData = createAsyncThunk('github/get', async (username) => {
     const userData = await userRes.data;
     const repoRes = await GithubService.getRepos(username);
     const repoData = await repoRes.data;
+    console.log(userRes);
     return { user: userData, repo: repoData };
   } catch (err) {
     console.log(err);
