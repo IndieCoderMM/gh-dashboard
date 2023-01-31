@@ -188,6 +188,7 @@ const ListContainer = styled.ul`
 `;
 
 const StatsCard = styled.div`
+  flex: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;

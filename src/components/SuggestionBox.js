@@ -23,7 +23,7 @@ const SuggestionBox = () => {
               <span style={{ fontWeight: 600 }}>{userData.followers}</span>
             </div>
             <div style={{ textAlign: 'center' }}>
-              <p>Followings</p>
+              <p>Following</p>
               <span style={{ fontWeight: 600 }}>{userData.following}</span>
             </div>
             <Link to={'/dashboard/'.concat(userData.login)}>View</Link>
