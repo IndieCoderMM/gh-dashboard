@@ -27,7 +27,7 @@ const RepoCard = ({ repoData }) => {
       </header>
       <S.Row>
         <S.Row>
-          <FaStar style={{ color: 'gold', fontSize: '1.5em' }} />
+          <FaStar style={{ color: '#f1c40f', fontSize: '1.5em' }} />
           <p style={{ fontSize: '1.5em', fontWeight: 600 }}>
             {stargazers_count}
           </p>

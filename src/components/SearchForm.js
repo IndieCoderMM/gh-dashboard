@@ -7,12 +7,15 @@ const SearchForm = () => {
   const userRef = useRef();
   const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const search = () => {
     const username = userRef.current.value.trim();
     if (username.length) {
       dispatch(getUserData(username));
     }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
   };
 
   return (
@@ -21,6 +24,7 @@ const SearchForm = () => {
         type="text"
         placeholder="Search by GitHub Username"
         ref={userRef}
+        onChange={search}
       />
       <button type="submit">Search</button>
     </S.SearchForm>

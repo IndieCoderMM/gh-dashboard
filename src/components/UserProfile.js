@@ -8,6 +8,7 @@ import S from './Styled';
 const UserProfile = () => {
   const userData = useSelector((state) => state.github.data.user);
   const repoData = useSelector((state) => state.github.data.repo);
+  if (!userData || !repoData) return null;
   const { avatar_url, login: username, name, bio, html_url } = userData;
   const { langs } = extractData(repoData);
 
@@ -20,7 +21,7 @@ const UserProfile = () => {
       <h4>
         <a
           href={html_url}
-          title="Go to GitHub Profile"
+          title="View GitHub Profile"
           target="_blank"
           rel="noreferrer"
         >

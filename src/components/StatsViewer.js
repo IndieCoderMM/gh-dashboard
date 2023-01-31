@@ -8,6 +8,7 @@ import S from './Styled';
 const StatsViewer = () => {
   const userData = useSelector((state) => state.github.data.user);
   const repoData = useSelector((state) => state.github.data.repo);
+  if (!userData || !repoData) return null;
   const { following, followers } = userData;
   const { stars, repos } = extractData(repoData);
   return (

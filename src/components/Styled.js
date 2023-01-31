@@ -58,6 +58,10 @@ const UserCard = styled.div`
   & > h4 a {
     color: ${theme.purple};
     text-decoration: none;
+    transition: all 0.3s;
+  }
+  & > h4 a:hover {
+    color: ${theme.blue};
   }
   & > p {
     text-align: center;
