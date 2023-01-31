@@ -1,19 +1,15 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import extractData from '../utils/extractData';
 import RecentWork from './RecentWork';
 import SkillVisualizer from './SkillVisualizer';
 import S from './Styled';
 
-const UserProfile = ({ data, meta, recentRepo }) => {
-  const {
-    avatar_url,
-    login: username,
-    name,
-    bio,
-    followers,
-    following,
-    html_url,
-  } = data;
-  const { stars, repos, langs } = meta;
+const UserProfile = () => {
+  const userData = useSelector((state) => state.github.data.user);
+  const repoData = useSelector((state) => state.github.data.repo);
+  const { avatar_url, login: username, name, bio, html_url } = userData;
+  const { langs } = extractData(repoData);
 
   return (
     <S.UserCard>
@@ -33,7 +29,7 @@ const UserProfile = ({ data, meta, recentRepo }) => {
       </h4>
       <p>{bio}</p>
       <SkillVisualizer langs={langs} />
-      <RecentWork recentRepo={recentRepo} />
+      <RecentWork recentRepo={repoData.slice(0, 5)} />
     </S.UserCard>
   );
 };

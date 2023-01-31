@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 const theme = {
   indigo: '#4320a0',
-  lime: '#90c243',
+  green: '#4caf50',
+  pink: '#e91e63',
+  blue: '#2196f3',
   purple: '#7755a6',
   orange: '#ff9800',
 };
@@ -53,8 +55,13 @@ const UserCard = styled.div`
   background-color: #fff;
   border-radius: 8px;
   padding: 1rem;
+  & > h4 a {
+    color: ${theme.purple};
+    text-decoration: none;
+  }
   & > p {
     text-align: center;
+    margin: 1rem 0;
   }
 `;
 
@@ -88,7 +95,7 @@ const SkillContainer = styled.div`
 const ProgressCircle = styled.div`
   --progress: ${(props) => props.percent};
   --primary: ${({ index }) =>
-    index === 0 ? theme.orange : index === 1 ? theme.lime : theme.purple};
+    index === 0 ? theme.blue : index === 1 ? theme.pink : theme.green};
   --gray: #e8e8e8;
   width: ${(props) => props.radius}px;
   height: ${(props) => props.radius}px;
@@ -109,7 +116,42 @@ const ListContainer = styled.ul`
   display: flex;
   flex-direction: column;
   border-top: solid 1px #ccc;
+  padding: 1rem 0;
   width: 100%;
+  & h3 {
+    margin-bottom: 1rem;
+  }
+`;
+
+const StatsCard = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  background-color: ${(props) => colors[props.colorIndex]};
+  color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+
+  & > svg {
+    font-size: 4em;
+    color: #fff;
+    padding: 0.25rem;
+    border: solid 1px #fff;
+    border-radius: 8px;
+  }
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+  }
+
+  & > div > span {
+    font-size: 2rem;
+    font-weight: 500;
+  }
 `;
 
 const RepoItem = styled.li`
@@ -177,6 +219,8 @@ const Row = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: ${(props) => props.gap || 0}rem;
+  padding: 0 ${(props) => props.pad || 0}rem;
 `;
 
 const Tag = styled.span`
@@ -185,6 +229,12 @@ const Tag = styled.span`
   color: #fff;
   border-radius: 25rem;
   padding: 0.25rem 0.5rem;
+`;
+
+const Section = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: ${(props) => props.pad || 0}rem;
 `;
 
 const S = {
@@ -201,6 +251,8 @@ const S = {
   RepoCard,
   Row,
   Tag,
+  Section,
+  StatsCard,
 };
 
 export default S;

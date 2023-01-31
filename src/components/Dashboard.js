@@ -1,25 +1,17 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import S from './Styled';
 import UserProfile from './UserProfile';
 import RepoViewer from './RepoViewer';
-import extractData from '../utils/extractData';
+import StatsViewer from './StatsViewer';
 
 const Dashboard = () => {
-  const userData = useSelector((state) => state.github.data.user);
-  const repoData = useSelector((state) => state.github.data.repo);
-  const meta = extractData(repoData);
-
   return (
     <S.Dashboard>
-      {userData ? (
-        <UserProfile
-          data={userData}
-          meta={meta}
-          recentRepo={repoData.slice(0, 3)}
-        />
-      ) : null}
-      <div>{repoData ? <RepoViewer data={repoData} /> : null}</div>
+      <UserProfile />
+      <S.Section>
+        <StatsViewer />
+        <RepoViewer />
+      </S.Section>
     </S.Dashboard>
   );
 };

@@ -4,11 +4,10 @@ import { GoRepo } from 'react-icons/go';
 import { BiRocket } from 'react-icons/bi';
 import { FaStar } from 'react-icons/fa';
 import { TbLicense } from 'react-icons/tb';
-import { RiGitRepositoryCommitsLine } from 'react-icons/ri';
+import { MdOutlineUpdate } from 'react-icons/md';
 
 const RepoCard = ({ repoData }) => {
   const {
-    id,
     name,
     homepage,
     description,
@@ -34,13 +33,13 @@ const RepoCard = ({ repoData }) => {
           </p>
         </S.Row>
         <S.Row>
-          <RiGitRepositoryCommitsLine />
-          <p>{new Date(pushed_at).toDateString()}</p>
+          <MdOutlineUpdate style={{ fontSize: '1.3em' }} />
+          <p>{new Date(pushed_at).toLocaleDateString()}</p>
         </S.Row>
 
         <S.Row>
-          <TbLicense />
-          {license ? <p>{license.name}</p> : 'MIT License'}
+          <TbLicense style={{ fontSize: '1.3em' }} />
+          {license ? <p>{license.name}</p> : 'Unlicensed'}
         </S.Row>
       </S.Row>
 
