@@ -17,7 +17,7 @@ const SuggestionBox = () => {
               <h3>{userData.login}</h3>
             </div>
           </S.Row>
-          <S.Row gap={3}>
+          <S.Row justify="space-between">
             <div style={{ textAlign: 'center' }}>
               <p>Followers</p>
               <span style={{ fontWeight: 600 }}>{userData.followers}</span>

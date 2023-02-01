@@ -24,9 +24,10 @@ const SearchForm = () => {
       <S.FormGroup>
         <input
           type="text"
-          placeholder="Search"
+          placeholder="Type to Search"
           ref={userRef}
           onChange={search}
+          autoFocus
         />
         <button type="submit">
           <FiSearch />

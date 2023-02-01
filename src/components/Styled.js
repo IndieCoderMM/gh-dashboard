@@ -11,17 +11,58 @@ const theme = {
 
 const colors = Object.values(theme);
 
-const SearchForm = styled.form`
+const device = {
+  mobile: `(max-width: 768px)`,
+  desktop: `(min-width: 768px)`,
+};
+
+// Homepage & Search box
+
+const Homepage = styled.div`
+  width: 100vw;
+  min-height: 100vh;
+  background: #457fca;
+  background: -webkit-linear-gradient(to right, #5691c8, #457fca);
+  background: linear-gradient(to right, #5691c8, #457fca);
+  color: #fff;
   display: flex;
-  justify-content: center;
-  gap: 1rem;
-  width: 60%;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem;
+
+  & h1 {
+    margin: 1rem 0;
+    font-weight: 700;
+    font-size: 3em;
+  }
+
+  & > p {
+    font-size: 1.4rem;
+  }
+`;
+
+const SearchForm = styled.form`
+  padding: 1rem;
+  @media ${device.desktop} {
+    width: 60%;
+  }
+`;
+
+const FormGroup = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 20rem;
+  padding: 0.5rem;
 
   & input {
-    flex: 1;
-    padding: 1rem 2rem;
+    width: 90%;
+    padding: 0.25rem 0 0 2rem;
     font-size: 1.5rem;
-    font-family: cursive;
+    font-family: 'Latos', sans-serif;
     border: none;
     background: none;
   }
@@ -31,7 +72,9 @@ const SearchForm = styled.form`
   }
 
   & input::placeholder {
-    opacity: 0.5;
+    font-family: 'Latos', sans-serif;
+    font-weight: 300;
+    color: #ccc;
   }
 
   & button {
@@ -52,26 +95,44 @@ const SearchForm = styled.form`
   }
 `;
 
-const FormGroup = styled.div`
-  display: flex;
-  background-color: #fff;
-  border-radius: 20rem;
-  padding: 0.5rem;
-`;
-
-const Homepage = styled.div`
-  width: 100vw;
-  height: 100vh;
-  background: #457fca;
-  background: -webkit-linear-gradient(to right, #5691c8, #457fca);
-  background: linear-gradient(to right, #5691c8, #457fca);
-  color: #fff;
-  padding: 4rem;
+const SuggestionBox = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 2rem;
+  min-width: 350px;
+  background-color: #fff;
+  color: ${theme.indigo};
+  padding: 2rem;
+  border-radius: 20px;
+
+  @media ${device.mobile} {
+    padding: 1rem;
+    width: 90%;
+  }
+
+  & img {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+  }
+
+  & a {
+    font-size: 1.5rem;
+    color: #fff;
+    text-decoration: none;
+    background-color: ${theme.blue};
+    font-family: 'Lato', sans-serif;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+  }
+
+  & a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(100, 100, 100, 0.4);
+  }
 `;
+
+// Dashboard
 
 const Dashboard = styled.div`
   display: flex;
@@ -79,6 +140,12 @@ const Dashboard = styled.div`
   gap: 1rem;
   padding: 1rem 2rem;
   margin: 1rem;
+
+  @media ${device.mobile} {
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+  }
 `;
 
 const UserCard = styled.div`
@@ -89,8 +156,14 @@ const UserCard = styled.div`
   background-color: #fff;
   border-radius: 8px;
   padding: 1rem;
+
+  @media ${device.mobile} {
+    width: 100%;
+  }
+
   & > h4 a {
     color: ${theme.purple};
+    font-family: 'Lato', sans-serif;
     text-decoration: none;
     transition: all 0.3s;
   }
@@ -99,6 +172,7 @@ const UserCard = styled.div`
   }
   & > p {
     text-align: center;
+    line-height: 1.4;
     margin: 1rem 0;
   }
 `;
@@ -127,6 +201,7 @@ const SkillContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-weight: 300;
   }
 `;
 
@@ -242,6 +317,9 @@ const RepoContainer = styled.ul`
   grid-template-columns: repeat(2, minmax(200px, 1fr));
   gap: 1rem;
   padding: 1rem;
+  @media ${device.mobile} {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const RepoCard = styled.li`
@@ -285,6 +363,7 @@ const Row = styled.div`
   gap: ${(props) => props.gap || 0}rem;
   padding: 0 ${(props) => props.pad || 0}rem;
   justify-content: ${(props) => props.justify || 'flex-start'};
+  flex-wrap: wrap;
 `;
 
 const Tag = styled.span`
@@ -299,37 +378,6 @@ const Section = styled.div`
   display: flex;
   flex-direction: column;
   padding: ${(props) => props.pad || 0}rem;
-`;
-
-const SuggestionBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  min-width: 300px;
-  background-color: #fff;
-  color: ${theme.indigo};
-  padding: 2rem;
-  border-radius: 20px;
-
-  & img {
-    width: 80px;
-    height: 80px;
-    border-radius: 8px;
-  }
-
-  & a {
-    font-size: 1.5rem;
-    color: #fff;
-    text-decoration: none;
-    background-color: ${theme.blue};
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    transition: all 0.2s ease;
-  }
-
-  & a:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 10px rgba(100, 100, 100, 0.4);
-  }
 `;
 
 const S = {

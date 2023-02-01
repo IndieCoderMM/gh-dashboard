@@ -12,7 +12,7 @@ const StatsViewer = () => {
   const { following, followers } = userData;
   const { stars, repos } = extractData(repoData);
   return (
-    <S.Row gap={1} pad={2}>
+    <S.Row gap={1} pad={2} mobileFlex="column">
       <S.StatsCard colorIndex={0}>
         <RiGitRepositoryFill />
         <div>
