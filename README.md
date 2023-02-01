@@ -156,7 +156,9 @@ If you like this project, please consider giving it a ⭐.
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank all code reviewers for making this project better.
+This project was inspired by:
+- [GitHub Finder](https://github.com/JasurbekIsokov/github-finder)
+- [GitHub Profile Finder](https://devpost.com/software/github-profile-finder)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
