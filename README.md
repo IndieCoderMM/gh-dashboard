@@ -23,7 +23,7 @@
 
 # 📊 GitHub Dashboard Generator <a name="about-project"></a>
 
-A simple web-based tool that allows users to generate a stylish GitHub Dashboard just by entering username.
+A web-based application that creates a dashboard for a user by using data from the GitHub API. Simply enter a GitHub username and the app will generate a dashboard displaying overview of relevant information. Users can also copy the link to their dashboard for easy access.
 
 ![Screenshot](app_screenshot.png)
 
@@ -129,7 +129,7 @@ I am always looking for ways to improve my project. If you have any suggestions 
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **Mobile UI**
+- [x] **Mobile UI**
 - [ ] **Visualize contribution**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
