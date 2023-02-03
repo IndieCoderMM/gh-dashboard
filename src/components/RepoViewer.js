@@ -14,7 +14,7 @@ const RepoViewer = () => {
         Popular Projects
       </h2>
       <S.RepoContainer>
-        {popularRepos.slice(0, 4).map((repo) => (
+        {popularRepos.slice(0, 6).map((repo) => (
           <RepoCard key={repo.id} repoData={repo} />
         ))}
       </S.RepoContainer>

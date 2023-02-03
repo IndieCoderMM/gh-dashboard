@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { FaMapMarkerAlt, FaBuilding, FaGlobe } from 'react-icons/fa';
 import extractData from '../utils/extractData';
 import RecentWork from './RecentWork';
 import SkillVisualizer from './SkillVisualizer';
@@ -9,7 +10,16 @@ const UserProfile = () => {
   const userData = useSelector((state) => state.github.data.user);
   const repoData = useSelector((state) => state.github.data.repo);
   if (!userData || !repoData) return null;
-  const { avatar_url, login: username, name, bio, html_url } = userData;
+  const {
+    avatar_url,
+    login: username,
+    name,
+    bio,
+    html_url,
+    location,
+    company,
+    blog,
+  } = userData;
   const { langs } = extractData(repoData);
 
   return (
@@ -30,6 +40,31 @@ const UserProfile = () => {
       </h4>
       <p>{bio}</p>
       <SkillVisualizer langs={langs} />
+      <S.ListContainer>
+        {location ? (
+          <li>
+            <FaMapMarkerAlt /> {location}
+          </li>
+        ) : null}
+        {company ? (
+          <li>
+            <FaBuilding /> {company}
+          </li>
+        ) : null}
+        {blog ? (
+          <li>
+            <FaGlobe />
+            <a
+              href={blog}
+              target="_blank"
+              rel="noreferrer"
+              style={{ textDecoration: 'none', color: '#2196f3' }}
+            >
+              Portfolio Website
+            </a>
+          </li>
+        ) : null}
+      </S.ListContainer>
       <RecentWork recentRepo={repoData.slice(0, 5)} />
     </S.UserCard>
   );

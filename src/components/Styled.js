@@ -162,7 +162,7 @@ const UserCard = styled.div`
   }
 
   & > h4 a {
-    color: ${theme.purple};
+    color: ${theme.orange};
     font-family: 'Lato', sans-serif;
     text-decoration: none;
     transition: all 0.3s;
@@ -259,6 +259,17 @@ const ListContainer = styled.ul`
   width: 100%;
   & h3 {
     margin-bottom: 1rem;
+  }
+
+  & > li > svg {
+    color: ${() => colors[Math.floor(Math.random() * colors.length)]};
+  }
+
+  & > li {
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
   }
 `;
 
