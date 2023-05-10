@@ -88,11 +88,6 @@ const FormGroup = styled.div`
     color: #fff;
     transition: all 0.3s ease;
   }
-
-  & button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 8px #ccc;
-  }
 `;
 
 const SuggestionBox = styled.div`
@@ -229,7 +224,7 @@ const ButtonContainer = styled.div`
   align-items: center;
   justify-content: ${(props) => props.justify};
   gap: ${(props) => props.gap}rem;
-  padding: 0 2rem;
+  padding: 0.5rem 2rem;
   --color: ${() => colors[Math.floor(Math.random() * colors.length)]};
 
   & button {
@@ -247,6 +242,17 @@ const ButtonContainer = styled.div`
     transform: translateY(-2px);
     color: #fff;
     box-shadow: 0 5px 10px rgba(100, 100, 100, 0.5);
+  }
+
+  @media ${device.mobile} {
+    flex-direction: column;
+    gap: 0.3rem;
+    margin-bottom: 1rem;
+
+    & button,
+    & a {
+      width: 100%;
+    }
   }
 `;
 

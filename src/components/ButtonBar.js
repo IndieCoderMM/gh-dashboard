@@ -11,14 +11,14 @@ const ButtonBar = () => {
 
   return (
     <S.ButtonContainer justify="flex-end" gap={2}>
+      <button type="button" onClick={copyDashboardLink}>
+        Copy Link <FaLink />{' '}
+      </button>
       <Link to="/">
         <button type="button">
           Back to Home <FaHome />
         </button>
       </Link>
-      <button type="button" onClick={copyDashboardLink}>
-        Copy Link <FaLink />{' '}
-      </button>
     </S.ButtonContainer>
   );
 };
