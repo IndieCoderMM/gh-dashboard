@@ -55,7 +55,7 @@ const UserProfile = () => {
           <li>
             <FaGlobe />
             <a
-              href={blog}
+              href={'https://' + blog}
               target="_blank"
               rel="noreferrer"
               style={{ textDecoration: 'none', color: '#2196f3' }}
