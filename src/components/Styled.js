@@ -88,6 +88,11 @@ const FormGroup = styled.div`
     color: #fff;
     transition: all 0.3s ease;
   }
+
+  & button:not(:disabled):hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 8px #ccc;
+  }
 `;
 
 const SuggestionBox = styled.div`
