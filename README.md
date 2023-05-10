@@ -6,12 +6,13 @@
     - [🧰 Tech Stack ](#-tech-stack-)
     - [💎 Key Features ](#-key-features-)
   - [🚀 Live Demo ](#-live-demo-)
-  - [💻 Getting Started ](#-getting-started-)
-    - [Prerequisites](#prerequisites)
-    - [Setup](#setup)
-    - [Install](#install)
-    - [Usage](#usage)
-    - [Deployment](#deployment)
+  - [� Getting Started ](#-getting-started-)
+    - [📋 Prerequisites](#-prerequisites)
+    - [📂 Setup](#-setup)
+    - [📥 Installation](#-installation)
+    - [🔑 Token](#-token)
+    - [💻 Usage](#-usage)
+    - [🎈 Deployment](#-deployment)
   - [📧 Contact ](#-contact-)
   - [🔭 Future Features ](#-future-features-)
   - [🤝 Contributing ](#-contributing-)
@@ -53,21 +54,21 @@ A web-based application that creates a dashboard for a user by using data from t
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-You can generate your dashboard on [GitHub Dashboard Generator](https://gh-dashboard-icmm.onrender.com/).
+You can visit the website on [GitHub Dashboard Generator](https://gh-dashboard-icmm.onrender.com/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 
-## 💻 Getting Started <a name="getting-started"></a>
+## 📗 Getting Started <a name="getting-started"></a>
 
-To get a local copy up and running, follow these steps.
+To run this project locally, follow these steps.
 
-### Prerequisites
+### 📋 Prerequisites
 
-In order to run this project you need [Node.js](https://nodejs.org/en/) installed on your machine.
+Before you begin, ensure that you have [Node.js](https://nodejs.org/en/) installed on your machine.
 
-### Setup
+### 📂 Setup
 
 Clone this repository to your desired folder:
 
@@ -76,7 +77,7 @@ Clone this repository to your desired folder:
   git clone git@github.com:IndieCoderMM/gh-dashboard.git .
 ```
 
-### Install
+### 📥 Installation
 
 Install the dependencies with:
 
@@ -84,7 +85,18 @@ Install the dependencies with:
   npm install
 ```
 
-### Usage
+### 🔑 Token
+
+You need a personal access token from Github to run this project locally.
+1. Generate a new token in [GitHub Setting](https://github.com/settings/tokens).
+2. Create a `.env` file in project root directory.
+3. Add your generated token to the `.env` file.
+```sh
+REACT_APP_GITHUB_ACCESS_TOKEN = your_github_token
+```
+4. Restart your server after adding this variable.
+
+### 💻 Usage
 
 To run the project, execute the following command:
 
@@ -92,22 +104,14 @@ To run the project, execute the following command:
   npm start
 ```
 
-<!-- ### Run tests
-
-To run tests, run the following command:
-
-```sh
-  npm run test
-``` -->
-
-### Deployment
+### 🎈 Deployment
 
 You can deploy this project using:
 
 ```sh
   npm run build
 ```
-This will create a production-ready build of your website in `build/` folder, which you can use to deploy on a static site server.
+This will create a production-ready build of your website in `build/` folder, which you can use to deploy to a hosting service.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
