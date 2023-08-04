@@ -23,22 +23,23 @@ const SearchForm = () => {
 
   return (
     <S.SearchForm onSubmit={handleSubmit}>
+      <p>Simply enter your GitHub username below.</p>
       <S.FormGroup>
         <input
           type="text"
-          placeholder="Type to Search"
+          placeholder="GitHub username goes here"
           ref={userRef}
           onChange={search}
           autoFocus
         />
         {userData ? (
           <Link to={'/dashboard/'.concat(userData.login)}>
-            <button type="button">
+            <button type="submit">
               <FiSearch />
             </button>
           </Link>
         ) : (
-          <button type="button" disabled>
+          <button type="submit" disabled>
             <FiSearch />
           </button>
         )}

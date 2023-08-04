@@ -26,7 +26,12 @@ const SuggestionBox = () => {
               <p>Following</p>
               <span style={{ fontWeight: 600 }}>{userData.following}</span>
             </div>
-            <Link to={'/dashboard/'.concat(userData.login)}>View</Link>
+            <Link
+              to={'/dashboard/'.concat(userData.login)}
+              className="primary-btn"
+            >
+              View
+            </Link>
           </S.Row>
         </S.SuggestionBox>
       ) : null}

@@ -18,3 +18,47 @@ h4 {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
 }
+
+/* CSS */
+.primary-btn {
+  background-color: #7f56d9;
+  border-radius: 999px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  font-family: 'Lato', Arial, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0;
+  max-width: none;
+  min-height: 44px;
+  min-width: 10px;
+  outline: none;
+  overflow: hidden;
+  padding: 9px 20px 8px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  text-decoration: none;
+  transition: all 0.1s ease-in;
+}
+
+.primary-btn:hover,
+.primary-btn:focus {
+  box-shadow: 0px 0px 18px #7f56d9;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 12px;
+}

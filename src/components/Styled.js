@@ -5,7 +5,7 @@ const theme = {
   green: '#4caf50',
   pink: '#e91e63',
   blue: '#2196f3',
-  purple: '#7755a6',
+  purple: '#7f56d9',
   orange: '#ff9800',
 };
 
@@ -19,49 +19,104 @@ const device = {
 // Homepage & Search box
 
 const Homepage = styled.div`
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
-  background: #457fca;
-  background: -webkit-linear-gradient(to right, #5691c8, #457fca);
-  background: linear-gradient(to right, #5691c8, #457fca);
-  color: #fff;
+  background: #f9fafb;
+  padding: 1rem;
+
+  & > header {
+    width: 100%;
+    margin: 0 auto 1rem;
+    border-radius: 999px;
+    background-color: #1b152b;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+  }
+
+  & > header h1 {
+    font-weight: 700;
+    font-size: 1.5rem;
+  }
+
+  @media ${device.desktop} {
+    padding: 1rem 10rem;
+
+    & > header {
+      width: 90%;
+      padding: 0.5rem 1.5rem;
+    }
+
+    & > header h1 {
+      font-size: 2rem;
+    }
+  }
+`;
+
+const Hero = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
-  padding: 1rem;
+  justify-content: center;
+  text-align: center;
+  padding: 0.5rem;
 
-  & h1 {
-    margin: 1rem 0;
-    font-weight: 700;
-    font-size: 3em;
+  & h2 {
+    font-size: 2.4rem;
+    font-weight: 400;
+    line-height: 1.1em;
+    margin-bottom: 1rem;
   }
 
-  & > p {
-    font-size: 1.4rem;
+  & p {
+    color: #7a7d9c;
+    font-size: 1.2rem;
+  }
+
+  @media ${device.desktop} {
+    padding: 1rem 3rem;
+    width: 90%;
+
+    & h2 {
+      font-size: 3rem;
+    }
   }
 `;
 
 const SearchForm = styled.form`
-  padding: 1rem;
+  margin: 1rem auto;
+  width: 100%;
+
+  & p {
+    text-align: center;
+    color: #7a7d9c;
+    margin-bottom: 1rem;
+  }
+
   @media ${device.desktop} {
-    width: 60%;
+    max-width: 600px;
   }
 `;
 
 const FormGroup = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
   background-color: #fff;
-  border-radius: 20rem;
-  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: solid 1px #ccc;
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.12),
+    0px 0px 0px 1px rgba(103, 110, 118, 0.16),
+    0px 2px 5px 0px rgba(103, 110, 118, 0.08);
+  padding: 0.75rem 1rem;
 
   & input {
-    width: 90%;
-    padding: 0.25rem 0 0 2rem;
-    font-size: 1.5rem;
+    flex: 1;
+    height: 100%;
+    font-size: 1.2rem;
     font-family: 'Latos', sans-serif;
     border: none;
     background: none;
@@ -73,41 +128,57 @@ const FormGroup = styled.div`
 
   & input::placeholder {
     font-family: 'Latos', sans-serif;
-    font-weight: 300;
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
     color: #ccc;
   }
 
   & button {
-    width: 2em;
-    height: 2em;
-    border-radius: 50%;
+    flex-shrink: 0;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 2em;
-    background: none;
-    background-color: ${theme.blue};
-    border: none;
-    color: #fff;
+    background: transparent;
+    border: solid 1px #ccc;
+    color: ${theme.purple};
     transition: all 0.3s ease;
   }
 
   & button:not(:disabled):hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 8px #ccc;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 8px -5px #ccc5;
+    cursor: pointer;
+  }
+
+  @media ${device.desktop} {
+    & input {
+      font-size: 1.3rem;
+    }
+
+    & input::placeholder {
+      font-size: 1.3rem;
+    }
   }
 `;
 
 const SuggestionBox = styled.div`
   display: flex;
   flex-direction: column;
-  min-width: 350px;
+  gap: 1rem;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
   background-color: #fff;
-  color: ${theme.indigo};
-  padding: 2rem;
-  border-radius: 20px;
-
-  @media ${device.mobile} {
-    padding: 1rem;
-    width: 90%;
-  }
+  color: ${theme.purple};
+  padding: 1rem 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0px 2px 4px -2px rgba(16, 24, 40, 0.06),
+    0px 4px 8px -2px rgba(16, 24, 40, 0.1);
 
   & img {
     width: 80px;
@@ -115,11 +186,15 @@ const SuggestionBox = styled.div`
     border-radius: 8px;
   }
 
+  & h2 {
+    font-weight: 700;
+  }
+
   & a {
     font-size: 1.5rem;
     color: #fff;
     text-decoration: none;
-    background-color: ${theme.blue};
+    background-color: ${theme.purple};
     font-family: 'Lato', sans-serif;
     padding: 0.5rem 1rem;
     border-radius: 8px;
@@ -129,6 +204,41 @@ const SuggestionBox = styled.div`
   & a:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 10px rgba(100, 100, 100, 0.4);
+  }
+`;
+
+const Footer = styled.footer`
+  margin-top: auto;
+  background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2rem 0.5rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+
+  & a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+  }
+
+  & a:hover {
+    text-decoration: underline;
+  }
+
+  @media ${device.desktop} {
+    padding: 4rem;
+
+    & > div {
+      flex-direction: row;
+    }
   }
 `;
 
@@ -404,10 +514,12 @@ const Section = styled.div`
 
 const S = {
   Homepage,
+  Hero,
   SearchForm,
   SuggestionBox,
   FormGroup,
   ButtonContainer,
+  Footer,
   Dashboard,
   UserCard,
   ProfileFrame,
