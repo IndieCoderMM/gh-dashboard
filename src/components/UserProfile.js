@@ -1,10 +1,10 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { FaMapMarkerAlt, FaBuilding, FaGlobe } from 'react-icons/fa';
-import extractData from '../utils/extractData';
-import RecentWork from './RecentWork';
-import SkillVisualizer from './SkillVisualizer';
-import S from './Styled';
+import React from "react";
+import { useSelector } from "react-redux";
+import { FaMapMarkerAlt, FaBuilding, FaGlobe } from "react-icons/fa";
+import extractData from "../utils/extractData";
+import RecentWork from "./RecentWork";
+import SkillVisualizer from "./SkillVisualizer";
+import S from "./Styled";
 
 const UserProfile = () => {
   const userData = useSelector((state) => state.github.data.user);
@@ -55,10 +55,14 @@ const UserProfile = () => {
           <li>
             <FaGlobe />
             <a
-              href={'https://' + blog}
+              href={
+                blog.startsWith("http://") || blog.startsWith("https://")
+                  ? blog
+                  : "https://" + blog
+              }
               target="_blank"
               rel="noreferrer"
-              style={{ textDecoration: 'none', color: '#2196f3' }}
+              style={{ textDecoration: "none", color: "#2196f3" }}
             >
               Portfolio Website
             </a>
