@@ -1,21 +1,34 @@
-import React, { useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getUserData } from '../redux/github/github';
-import { Link } from 'react-router-dom';
-import { FiSearch } from 'react-icons/fi';
-import S from './Styled';
+import React, { useRef, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserData } from "../redux/github/github";
+import { Link } from "react-router-dom";
+import { FiSearch } from "react-icons/fi";
+import S from "./Styled";
 
 const SearchForm = () => {
   const userRef = useRef();
   const dispatch = useDispatch();
   const userData = useSelector((state) => state.github.data.user);
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
 
   const search = () => {
     const username = userRef.current.value.trim();
     if (username.length) {
-      dispatch(getUserData(username));
+      setDebouncedSearchTerm(username);
     }
   };
+
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      if (debouncedSearchTerm) {
+        dispatch(getUserData(debouncedSearchTerm));
+      }
+    }, 500);
+
+    return () => {
+      clearTimeout(timerId);
+    };
+  }, [debouncedSearchTerm, dispatch]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,7 +46,7 @@ const SearchForm = () => {
           autoFocus
         />
         {userData ? (
-          <Link to={'/dashboard/'.concat(userData.login)}>
+          <Link to={"/dashboard/".concat(userData.login)}>
             <button type="submit">
               <FiSearch />
             </button>
